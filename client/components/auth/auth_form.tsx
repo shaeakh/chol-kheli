@@ -7,7 +7,7 @@ import SignupFormDemo from "./signup-form-demo";
 
 export default function AuthForm() {
   return (
-    <div className="flex flex-col shadow-input mx-auto w-full max-w-md  bg-white rounded-2xl md:p-8 dark:bg-black">
+    <div className="border-2 border-input rounded-lg p-4 min-w-0 max-w-lg  md:min-w-[400px] md:max-w-[600px]">
       <h2 className="text-center text-xl font-bold text-neutral-800 dark:text-neutral-200 mb-2">
         Welcome to our platform
       </h2>
