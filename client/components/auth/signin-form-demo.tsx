@@ -3,6 +3,7 @@ import { ENDPOINTS } from "@/lib/url";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { toast } from "sonner";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
@@ -23,11 +24,14 @@ const signin_form_demo = () => {
 
     setLoading(true);
     try {
+      console.log("end point : ", ENDPOINTS.v1.auth.login);
       await axios
         .post(ENDPOINTS.v1.auth.login, loginData)
         .then((res) => {
           console.log(res.data);
-          alert("Signed in successfully");
+
+          toast.success("Signed in successfully!");
+          toast.dismiss();
           setLoading(false);
           router.push("/dashboard");
         })
@@ -62,10 +66,8 @@ const signin_form_demo = () => {
       <Button disabled={loading} className="w-full">
         {loading ? "Signing In..." : "Sign In"}
       </Button>
-      <div>
-        <p> Sample email : hackerman@hack.com</p>
-        <p> Sample password : H@ak_M3_!F_U_c@n</p>
-      </div>
+      <p> Sample email : hackerman@hack.com</p>
+      <p> Sample password : H@ak_M3_!F_U_c@n</p>
     </form>
   );
 };
