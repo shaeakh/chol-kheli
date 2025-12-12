@@ -11,7 +11,7 @@ const {connectDB} = require("./config/pg");
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: "*",
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
@@ -29,6 +29,10 @@ const {check_From_version} = require("./middleware/check")
 const verson1 = require("./version/v1")
 
 app.use("/api/v1",errorHandler,check_From_version,verson1);
+app.get('/',(req,res)=>{
+    res.send("welcome to cholkheli")
+})
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT,async () => {
